@@ -21,10 +21,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
-        working-directory: ./backend
         run: yarn install
       - name: Run Test
-        working-directory: ./backend
         run: yarn test
   deploy:
     runs-on: ubuntu-latest
