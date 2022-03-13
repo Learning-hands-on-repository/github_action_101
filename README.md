@@ -6,8 +6,9 @@ Push to main branch flow
 sequenceDiagram
     Dev->>Github: Push new code [main]
     Github->>Github Action: Trigger workflow
-    Github Action->>Github Action: Build Node & Test
+    Github Action->>Github Action: Run Build & Test Job
     alt Build & test is pass
+        Github Action->>Github Action: Run Deploy Job
         Github Action->>Heroku: Deploy
     else Faild
         Github Action->>Heroku: Skip Deploy
@@ -21,8 +22,9 @@ Create a pull request flow
 sequenceDiagram
     Dev->>Github: Create a pull request
     Github->>Github Action: Trigger workflow
-    Github Action->>Github Action: Build Node & Test
+    Github Action->>Github Action: Run Build & Test Job
     alt Build & test is pass
+        Github Action->>Github Action: Run Deploy Job
         Github Action->>Heroku: Deploy
         Heroku ->> Github Action: Deployed
         Github Action ->> Github: Pass
