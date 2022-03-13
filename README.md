@@ -11,7 +11,7 @@ sequenceDiagram
         Github Action->>Github Action: Run Deploy Job
         Github Action->>Heroku: Deploy
     else Faild
-        Github Action->>Heroku: Skip Deploy
+        Github Action->>Github: Skip Deploy
     end
 ```
 
@@ -30,9 +30,7 @@ sequenceDiagram
         Github Action ->> Github: Pass
         Github ->> Dev: You can merge :D
     else Faild
-        Github Action->>Heroku: Skip Deploy
-        Heroku ->> Github Action: You do nothing
-        Github Action ->> Github: The check is skipped
+        Github Action->>Github: Skip Deploy
         Github ->> Dev: Can't merge, one check is failed :(
     end
 ```
