@@ -5,7 +5,7 @@ var router = express.Router();
 router.get("/", function (req, res, next) {
   res.render("index", {
     title: "Github Action 101",
-    message: "please accept 6 == 5",
+    message: "please accept 1 + 1 == 2",
   });
 });
 
